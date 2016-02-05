@@ -5,10 +5,11 @@
 
 Members
 ---------
-John Janzen
+John Janzen                     Acknowledged
 Austin Lott			Acknowledged
 Cameron Stenmark
 
 
 2/4/2016 Sycning - Austin
+2/4/2016 Syncing - John
 2/4/2016 Updating - Cameron

@@ -18,3 +18,5 @@ Cameron Stenmark                Acknowledged
 2/12/2016   Added database SQL file - John
 2/12/2016   Added base template and controller - Cameron
 2/12/2016   Added new file paths for assets/bootstrap - Cameron
+2/12/2016   Added code for dashboard view - Austin
+2/12/2016   Added code for stock view - Austin

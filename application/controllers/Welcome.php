@@ -19,12 +19,18 @@ class Welcome extends Application {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
     
-        function __construct()
-	{
+        function __construct() {
 		parent::__construct();
         }
-	public function index()
-	{
+	public function index() {
 		$this->load->view('welcome_message');
 	}
+        
+        public function playerPanel() {
+            
+        }
+        
+        public function stockPanel() {
+            
+        }
 }

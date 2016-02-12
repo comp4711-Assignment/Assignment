@@ -1,8 +1,11 @@
-<?php
+<h1>{stockname}</h1>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+    Pick Stock..
+<span class="caret"></span></button>
+<ul class="dropdown-menu">
+    {stocklist} <!--List of stocks. Need to be wrapped in <li> tags-->
+</ul>
 
+<div>{stockdata}</div>
+        

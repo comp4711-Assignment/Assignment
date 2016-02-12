@@ -15,3 +15,4 @@ Cameron Stenmark                Acknowledged
 2/4/2016    Updating - Cameron
 2/12/2016   Created controller templates - Cameron
 2/12/2016   Created view files - Austin
+2/12/2016   Added database SQL file - John

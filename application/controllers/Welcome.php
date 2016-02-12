@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+//defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends Application {
 
@@ -23,7 +23,7 @@ class Welcome extends Application {
 		parent::__construct();
         }
 	public function index() {
-		$this->load->view('welcome_message');
+		$this->render();
 	}
         
         public function playerPanel() {

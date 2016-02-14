@@ -52,5 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['stocks/(:any)'] = 'stockscontroller/display/$1';
 $route['stocks'] = 'stockscontroller/display';
+$route['player/(:any)'] = 'playerscontroller/display/$1';
+$route['player'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -12,6 +12,17 @@
                 </tbody>
             </table>
         </td> <!--Panel for stock info-->
-        <td id="PlyrPnl">{playerpanel}</td> <!--player info-->
+        <td id="PlyrPnl">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="span2">Player</th><th class="span2">Cash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {playerpanel}
+                </tbody>
+            </table>
+        </td> <!--player info-->
     </table>
 </div>

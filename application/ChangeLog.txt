@@ -20,4 +20,6 @@ Cameron Stenmark                Acknowledged
 2/12/2016   Added new file paths for assets/bootstrap - Cameron
 2/12/2016   Added code for dashboard view - Austin
 2/12/2016   Added code for stock view - Austin
-2/14/2016   Linked dashboard view to Base_Controller
+2/14/2016   Linked dashboard view to Base_Controller - Austin
+2/14/2016   Initial Styling for Stock panel of dashboard - Austin
+2/14/2016   Grab Data for the stock panel - Cameron & John

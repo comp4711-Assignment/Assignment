@@ -50,7 +50,7 @@ class Welcome extends Application {
             $stocks = $this->stocks->all();           
             $stockData = '';
             foreach($stocks as $stock) {
-                    $stockData .= '<tr><td>'.$stock->Name.'</td><td>'.$stock->Value.'</td></tr>';
+                    $stockData .= '<tr><td><a href="stocks/'.$stock->Code.'">'.$stock->Name.'</td><td>'.$stock->Value.'</td></tr>';
             }
            
             $this->data['stockpanel'] = $stockData;    

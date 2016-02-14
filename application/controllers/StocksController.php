@@ -9,20 +9,26 @@ class StocksController extends Application {
     
     function display($name = null) {
         $this->data['pagebody'] = 'stock';
-        $this->data['stockname'] = $name;
-        $row = $this->stocks->get($name);
         
-        $list = $this->stocks->all();
+        if($name != null) {
         
-        $dropdown = '';
-               
-        foreach($list as $item) {
-            $dropdown .= '<li><a href="'.$item->Code.'">'.$item->Name.'</a></li>';
+            $row = $this->stocks->get($name);
+
+            $this->data['stockname'] = $row->Name;
+
+            $list = $this->stocks->all();
+
+            $dropdown = '';
+
+            foreach($list as $item) {
+                $dropdown .= '<li><a href="'.$item->Code.'">'.$item->Name.'</a></li>';
+            }
+
+            $this->data['stocklist'] = $dropdown;
+
+            $this->data['stockdata'] = $row->Value;
+
         }
-        
-        $this->data['stocklist'] = $dropdown;
-        
-        $this->data['stockdata'] = $row->Name;
         
         $this->render();
     }

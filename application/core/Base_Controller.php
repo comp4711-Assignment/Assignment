@@ -25,6 +25,8 @@ class Application extends CI_Controller {
 		$this->data['title'] = 'Stock Ticker';	// our default title
 		$this->errors = array();
 		$this->data['pageTitle'] = 'Welcome';   // our default page
+                $this->data['stockpanel'] = 'test1';
+                $this->data['playerpanel'] = 'test2';
 	}
 
 	/**
@@ -33,10 +35,10 @@ class Application extends CI_Controller {
 	function render(){
 		
            //$this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
-           //$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+           $this->data['content'] = $this->parser->parse('dashboard', $this->data, true);
             
-             $this->data['data'] = &$this->data;
-             $this->parser->parse('template', $this->data);
+           $this->data['data'] = &$this->data;
+           $this->parser->parse('template', $this->data);
 	}
 
 }

@@ -6,10 +6,10 @@
  * and open the template in the editor.
  */
 
-class Stock extends Base_Model {
+class Stocks extends Base_Model {
     
     function __construct() {
-        parent::__construct('stock', 'num');
+        parent::__construct('stocks', 'code');
     }
     
 }

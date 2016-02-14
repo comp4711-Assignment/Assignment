@@ -26,7 +26,13 @@ class Welcome extends Application {
             $this->data['title'] = 'Stock Ticker';
             $this->data['pagebody'] = 'dashboard';
             
-            $this->data['name'] = $this->db->get('stocks')->row()->Name;
+            
+            $stocks = $this->stocks->all();        
+            $stockData = '';        
+                foreach($stocks as $stock) {
+                    $stockData .= '<tr><td> '.$stock->Name.'</td></tr>';
+                }
+            $this->data['stockpanel'] = $stockData;
             $this->render();
 	}
         

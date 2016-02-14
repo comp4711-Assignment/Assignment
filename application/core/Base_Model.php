@@ -265,7 +265,7 @@ class Base_Model extends CI_Model implements Active_Record {
 
 }
 
-class Base_Model2 extends MY_Model {
+class Base_Model2 extends Base_Model {
 
     protected $_keyField2;                 // second part of composite primary key
 

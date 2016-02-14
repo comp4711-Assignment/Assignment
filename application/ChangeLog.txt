@@ -23,3 +23,5 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Linked dashboard view to Base_Controller - Austin
 2/14/2016   Initial Styling for Stock panel of dashboard - Austin
 2/14/2016   Grab Data for the stock panel - Cameron & John
+2/14/2016   Implemented stock view with dropdown links - Cameron & John
+2/14/2016   Fixed styling for dashboard display - Austin

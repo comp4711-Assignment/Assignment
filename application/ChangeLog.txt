@@ -25,3 +25,4 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Grab Data for the stock panel - Cameron & John
 2/14/2016   Implemented stock view with dropdown links - Cameron & John
 2/14/2016   Fixed styling for dashboard display - Austin
+2/14/2016   Implemented player view - Austin

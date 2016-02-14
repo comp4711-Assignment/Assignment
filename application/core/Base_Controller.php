@@ -17,7 +17,7 @@ class Application extends CI_Controller {
 		$this->errors = array();
 		$this->data['content'] = 'Welcome';   // our default page
 		$this->data['pageTitle'] = 'Welcome';   // our default page
-                $this->data['stockpanel'] = 'test1';
+                $this->data['stockpanel'] = '<tr>'.'test1'.'</tr>';
                 $this->data['playerpanel'] = 'test2';
 	}
 

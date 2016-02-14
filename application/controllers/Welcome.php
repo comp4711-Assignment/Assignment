@@ -26,13 +26,9 @@ class Welcome extends Application {
             $this->data['title'] = 'Stock Ticker';
             $this->data['pagebody'] = 'dashboard';
             
+            $this->stockPanel();
+            $this->playerPanel();
             
-            $stocks = $this->stocks->all();        
-            $stockData = '';        
-                foreach($stocks as $stock) {
-                    $stockData .= '<tr><td> '.$stock->Name.'</td></tr>';
-                }
-            $this->data['stockpanel'] = $stockData;
             $this->render();
 	}
         
@@ -41,6 +37,11 @@ class Welcome extends Application {
         }
         
         public function stockPanel() {
-            
+            $stocks = $this->stocks->all();        
+            $stockData = '';        
+                foreach($stocks as $stock) {
+                    $stockData .= '<table><tr><td> '.$stock->Name.'</td><td>'.$stock->Value.'</td></tr></table>';
+                }
+            $this->data['stockpanel'] = $stockData;    
         }
 }

@@ -37,8 +37,11 @@ class Welcome extends Application {
             $playerData = '<table>';
             
             foreach($players as $player) {
-                
+                $playerData .= '<tr><td>'.$player->Player.'</td><td>'.$player->Cash.'</td></tr>';
             }
+            $playerData .= '</table>';
+            
+            $this->data['playerpanel'] = $playerData;
         }
         
         public function stockPanel() {

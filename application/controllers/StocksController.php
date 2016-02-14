@@ -1,6 +1,6 @@
 <?php
 
-class Stocks extends Application {
+class StocksController extends Application {
     
     function __construct()
     {
@@ -10,7 +10,7 @@ class Stocks extends Application {
     function display($name = null) {
         $this->data['pagebody'] = 'stock';
         $this->data['stockname'] = $name;
-        $this->data['stockdata'] = $this->db->get('stocks')->row()->Value;
+        $this->data['stockdata'] = $this->stocks->get($name);
         $this->render();
     }
 }

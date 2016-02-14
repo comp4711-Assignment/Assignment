@@ -23,7 +23,11 @@ class Welcome extends Application {
 		parent::__construct();
         }
 	public function index() {
-		$this->render();
+            $this->data['title'] = 'Stock Ticker';
+            $this->data['pagebody'] = 'dashboard';
+            
+            $this->data['name'] = $this->db->get('stocks')->row()->Name;
+            $this->render();
 	}
         
         public function playerPanel() {

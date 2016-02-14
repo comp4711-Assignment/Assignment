@@ -1,14 +1,5 @@
 <?php
 
-/**
- * core/MY_Controller.php
- *
- * Default application controller
- *
- * @author		JLP
- * @copyright           2010-2013, James L. Parry
- * ------------------------------------------------------------------------
- */
 class Application extends CI_Controller {
 
 	protected $data = array();	  // parameters for view components
@@ -24,6 +15,7 @@ class Application extends CI_Controller {
 		$this->data = array();
 		$this->data['title'] = 'Stock Ticker';	// our default title
 		$this->errors = array();
+		$this->data['content'] = 'Welcome';   // our default page
 		$this->data['pageTitle'] = 'Welcome';   // our default page
                 $this->data['stockpanel'] = 'test1';
                 $this->data['playerpanel'] = 'test2';

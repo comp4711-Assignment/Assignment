@@ -26,3 +26,4 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Implemented stock view with dropdown links - Cameron & John
 2/14/2016   Fixed styling for dashboard display - Austin
 2/14/2016   Implemented player view - Austin
+2/14/2016   Added stock history for stock view - Cameron & John

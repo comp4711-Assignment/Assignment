@@ -1,4 +1,3 @@
-<h1>{stockname}</h1>
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
         Pick Stock..
@@ -7,6 +6,7 @@
         {stocklist} <!--List of stocks. Need to be wrapped in <li> tags-->
     </ul>
 </div>
+<h3>{stockname}</h3>
 <div><h3>Current Value: {stockvalue}</h3></div>
 <br>
 <br>

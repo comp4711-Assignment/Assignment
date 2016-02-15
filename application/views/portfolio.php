@@ -1,3 +1,6 @@
+<!--
+ Portfolio for the player stats for equity and values.
+-->
 <h1>{playername}</h1>
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

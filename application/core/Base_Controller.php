@@ -1,5 +1,9 @@
 <?php
 
+/****
+ * Base controller that all the other controllers call upon when generating 
+ * render and construct.
+ */
 class Application extends CI_Controller {
 
 	protected $data = array();	  // parameters for view components
@@ -18,8 +22,6 @@ class Application extends CI_Controller {
 		$this->errors = array();
 		$this->data['content'] = 'Welcome';   // our default page
 		$this->data['pageTitle'] = 'Welcome';   // our default page
-                //$this->data['stockpanel'] = '<tr>'.'test1'.'</tr>';
-                //$this->data['playerpanel'] = 'test2';
 	}
 
 	/**
@@ -37,7 +39,9 @@ class Application extends CI_Controller {
            
         }
         
-       
+       /***
+        * Initializes the menu for the session
+        */
         function init_menu() {
             if($this->session->userdata('username') == ''){
                 $username = '';

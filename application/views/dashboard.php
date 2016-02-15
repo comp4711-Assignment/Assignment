@@ -1,6 +1,10 @@
+<!-- 
+ The main page that holds the two panels on the tables
+ for even spacing.
+-->
 <div class="table-responsive">
     <table class="table table-bordered">
-        <td id="StckPnl" style="width: 50%">
+        <td id="StckPnl" style="width: 50%"> <!--Panel for stock info-->
             <table>
                 <thead>
                     <tr>
@@ -11,8 +15,8 @@
                     {stockpanel}
                 </tbody>
             </table>
-        </td> <!--Panel for stock info-->
-        <td id="PlyrPnl">
+        </td> <!-- stock end --> 
+        <td id="PlyrPnl"> <!--player info-->
             <table>
                 <thead>
                     <tr>
@@ -25,6 +29,6 @@
                     {playerpanel}
                 </tbody>
             </table>
-        </td> <!--player info-->
+        </td> <!-- player end -->
     </table>
 </div>

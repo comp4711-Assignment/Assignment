@@ -7,16 +7,21 @@
         <title>{title}</title>
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
+        <script src ="/assets/js/bootstrap.js"></script>
     </head>
     <body>
+        
+
         <div class="container">
-            <div id="" class="row">
-                <p></p>
-            </div>           
+            <h1>Stock Ticker</h1>
+            {menubar}
+            
             <div id="content">
-                <h1>{title}</h1>
+                
+                
                 {content}
             </div>
             <div id="footer" class="span12">

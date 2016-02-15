@@ -29,3 +29,4 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Added stock history for stock view - Cameron & John
 2/14/2016   Added navbar and updated styling - Cameron
 2/14/2015   Added Player holdings tables
+2/14/2016   Added username session variable defaulted to Donald

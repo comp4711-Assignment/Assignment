@@ -99,6 +99,9 @@ class PlayersController extends Application {
         
     }
         
+    /***
+     * Shows transaction history
+     */
     function show_transactions($name) {
 
         $list = $this->transactions->some('player', $name);
@@ -113,6 +116,9 @@ class PlayersController extends Application {
 
     }
         
+    /***
+     * Shows current holding of the player.
+     */
     function show_holdings($name) {
 
         $list = $this->transactions->some('player', $name);
@@ -144,7 +150,7 @@ class PlayersController extends Application {
                 }
 
                 $total = $quant * $value;
-                $this->equity += $total;
+                $this->equity += $total; // adds to equity total
                 $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>';
             }
         }

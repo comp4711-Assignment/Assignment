@@ -28,6 +28,10 @@ class Welcome extends Application {
         function __construct() {
 		parent::__construct();
         }
+        
+        /***
+         * Base function that is called when welcome page is generated
+         */
 	public function index() {
             $this->data['title'] = 'Stock Ticker';
             $this->data['pagebody'] = 'dashboard';
@@ -38,9 +42,12 @@ class Welcome extends Application {
             $this->render();
 	}
         
+        /****
+         * generates the player panel an data along with it
+         */
         public function playerPanel() {
-            $players = $this->players->all();
-            $playerData = '';
+            $players = $this->players->all(); // all players
+            $playerData = ''; // empty string
             
 
             foreach($players as $player) {
@@ -52,6 +59,9 @@ class Welcome extends Application {
             
         }
         
+        /***
+         * calculates the equity of the player
+         */
         function calc_equity($player) {
             
             $list = $this->transactions->some('player', $player);
@@ -84,9 +94,12 @@ class Welcome extends Application {
                     $equity += $total;
                 }
             }
-            return $equity;
+            return $equity; // returns the total equity
         }
         
+        /***
+         * generates the stock panel with data from database
+         */
         public function stockPanel() {
             $stocks = $this->stocks->all();           
             $stockData = '';

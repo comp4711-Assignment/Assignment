@@ -6,8 +6,14 @@
  * and open the template in the editor.
  */
 
+/**
+ * movements model that gets movements based on date time
+ */
 class Movements extends Base_Model {
     
+    /***
+     * Base constructor
+     */
     function __construct() {
         parent::__construct('movements', 'datetime');
     }

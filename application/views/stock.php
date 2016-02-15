@@ -1,3 +1,8 @@
+<!--
+ Stock view page that holds the data for the current stock and
+ sets it all to two tables holding the information.
+-->
+
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
         Pick Stock..

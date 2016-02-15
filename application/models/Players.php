@@ -6,8 +6,14 @@
  * and open the template in the editor.
  */
 
+/***
+ * Base players model to get players data based on players names
+ */
 class Players extends Base_Model {
     
+    /***
+     * base constructor
+     */
     function __construct() {
         parent::__construct('players', 'player');
     }

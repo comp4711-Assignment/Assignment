@@ -1,5 +1,9 @@
 <?php
 
+/****
+ * Base controller that all the other controllers call upon when generating 
+ * render and construct.
+ */
 class Application extends CI_Controller {
 
 	protected $data = array();	  // parameters for view components
@@ -17,8 +21,6 @@ class Application extends CI_Controller {
 		$this->errors = array();
 		$this->data['content'] = 'Welcome';   // our default page
 		$this->data['pageTitle'] = 'Welcome';   // our default page
-                //$this->data['stockpanel'] = '<tr>'.'test1'.'</tr>';
-                //$this->data['playerpanel'] = 'test2';
 	}
 
 	/**
@@ -26,11 +28,11 @@ class Application extends CI_Controller {
 	 */
 	function render(){
 		
-           $this->data['menubar'] = $this->parser->parse('menubar', $this->config->item('menu_choices'),true);
-           $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+           $this->data['menubar'] = $this->parser->parse('menubar', $this->config->item('menu_choices'),true); // menubar data
+           $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true); // content data
             
-           $this->data['data'] = &$this->data;
-           $this->parser->parse('template', $this->data);
+           $this->data['data'] = &$this->data; // base data
+           $this->parser->parse('template', $this->data); // gets the base template for all pages to use
 	}
 
 }

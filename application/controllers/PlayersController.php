@@ -2,7 +2,8 @@
 
 class PlayersController extends Application {
     
-    
+        var $equity = 0;
+        
         function __construct()
 	{
 		parent::__construct();
@@ -22,7 +23,11 @@ class PlayersController extends Application {
 
                 $this->data['playercash'] = $row->Cash;
                 
-                $this->show_activity($name);
+                $this->show_transactions($name);
+                
+                $this->show_holdings($name);
+                
+                $this->data['playerequity'] = $this->equity + $row->Cash;
             }
             
             $this->render();
@@ -36,7 +41,21 @@ class PlayersController extends Application {
             return $dropdown;
         }
         
-        function show_activity($name) {
+        function show_transactions($name) {
+
+            $list = $this->transactions->some('player', $name);
+
+            $history = '';
+
+            foreach($list as $item) {
+                $history .= '<tr><td>'.$item->DateTime.'</td><td>'.$item->Stock.'</td><td>'.$item->Trans.'</td><td>'.$item->Quantity.'</td></tr>';
+            }
+
+            $this->data['playeract'] = $history;
+
+        }
+        
+        function show_holdings($name) {
 
             $list = $this->transactions->some('player', $name);
 
@@ -67,6 +86,7 @@ class PlayersController extends Application {
                     }
 
                     $total = $quant * $value;
+                    $this->equity += $total;
                     $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>';
                 }
             }

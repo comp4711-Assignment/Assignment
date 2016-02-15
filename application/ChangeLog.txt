@@ -30,3 +30,6 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Added navbar and updated styling - Cameron
 2/14/2015   Added Player holdings tables
 2/14/2016   Added username session variable defaulted to Donald
+2/14/2016   Added Player holdings table - Austin 
+2/14/2016   Added Player activity table and total player equity field - Austin
+2/14/2016   Added Equity field to player panel of dashboard - Austin

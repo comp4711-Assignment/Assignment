@@ -56,11 +56,47 @@ class Welcome extends Application {
             
 
             foreach($players as $player) {
-                $playerData .= '<tr><td><a href="player/'.$player->Player.'">'.$player->Player.'</td><td>'.$player->Cash.'</td></tr>';
+                $equity = $this->calc_equity($player->Player);
+                $playerData .= '<tr><td><a href="player/'.$player->Player.'">'.$player->Player.'</td><td>'.$player->Cash.'</td><td>'.$equity.'</td></tr>';
             }
             
             $this->data['playerpanel'] = $playerData;
             
+        }
+        
+        function calc_equity($player) {
+            
+            $list = $this->transactions->some('player', $player);
+
+            $array = array();
+            $equity = 0;
+
+            foreach($list as $item) {
+                if(!in_array($item->Stock, $array, true)) {
+                    array_push($array, $item->Stock);
+                    $list3 = $this->stocks->some('code', $item->Stock);
+                    $value = 0;
+                    $quant = 0;
+                    foreach($list3 as $item3) {
+                        $value = $item3->Value;
+
+                        $list2 = $this->transactions->some('stock', $item->Stock);
+
+                        foreach($list2 as $item2) {
+                            if($item2->Player == $player) {
+                                if($item2->Trans == 'buy') {
+                                    $quant += $item->Quantity;
+                                } else {
+                                    $quant -= $item->Quantity;
+                                }
+                            }
+                        }
+                    }
+                    $total = $quant * $value;
+                    $equity += $total;
+                }
+            }
+            return $equity;
         }
         
         public function stockPanel() {

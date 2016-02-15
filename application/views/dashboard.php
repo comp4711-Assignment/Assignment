@@ -16,7 +16,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="span2">Player</th><th class="span2">Cash</th>
+                        <th class="span2">Player</th>
+                        <th class="span2">Cash</th>
+                        <th class="span2">Equity</th>
                     </tr>
                 </thead>
                 <tbody>

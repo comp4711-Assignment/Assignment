@@ -30,10 +30,10 @@
           <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
-          <form role ="form">                  
+          <form role ="form" method="post" action="/welcome/get_value">                  
               <div class="formgroup">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="username" width="30">
+                  <input name="username" type="text" class="form-control" id="username" value="" width="30">
               </div>
               
               <div class="formgroup">
@@ -41,7 +41,7 @@
                   <input type="password" class="form-control" id="pass" width="15">
               </div>
               
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" name="submit" id="submit" class="btn btn-default" value="submit">Submit</button>
               
           </form>
           <div class="modal-footer">

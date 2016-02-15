@@ -31,6 +31,24 @@ class Welcome extends Application {
             
             $this->render();
 	}
+             
+        function get_value() {
+            if ($this->input->post('username') != '') {
+                $username = $this->input->post('username');
+                $newdata = array(
+                'username' => $username
+                );
+                $this->session->set_userdata($newdata);
+            redirect('welcome');   
+            } 
+            redirect('stocks');
+        }
+        
+        function logout() {
+            $this->session->unset_userdata('username');
+            
+            redirect('welcome');
+        }
         
         public function playerPanel() {
             $players = $this->players->all();

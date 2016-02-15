@@ -26,35 +26,31 @@ class Application extends CI_Controller {
 	 * Render this page
 	 */
 	function render(){
-           $this->init_session();
+           
            $this->init_menu();
            $this->data['menubar'] = $this->parser->parse('menubar', $this->menudata,true);
            $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
             
            $this->data['data'] = &$this->data;
            $this->parser->parse('template', $this->data);
-	}
-        
-        function init_session() {
-            $newdata = array(
-                'username' => 'Donald'
-            );
-            
-            $this->session->set_userdata($newdata);
+	
+           
         }
         
+       
         function init_menu() {
             if($this->session->userdata('username') == ''){
                 $username = '';
                 $action = 'Login';
                 $userlink ='';
                 $closelink = '';
-                
+                $loginlink = ' <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">';
             } else {
                 $username = $this->session->userdata('username');
                 $action = 'Logout';
                 $userlink = '<a href="player/'.$username.'">';
                 $closelink = '</a>';
+                $loginlink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="welcome/logout">';
             }
 
          
@@ -63,7 +59,7 @@ class Application extends CI_Controller {
                 array('name' => 'Players', 'link' => '/player'),
             );
             $this->menudata['username'] = $username;
-            $this->menudata['loginlink'] = ' <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">';
+            $this->menudata['loginlink'] = $loginlink;
             $this->menudata['action'] = $action;
             $this->menudata['userlink'] = $userlink;
             $this->menudata['closelink'] = $closelink;  

@@ -1,0 +1,35 @@
+////////////////////
+/    Change Log    /
+////////////////////
+
+
+Members
+---------
+John Janzen                     Acknowledged
+Austin Lott			Acknowledged
+Cameron Stenmark                Acknowledged
+
+
+2/4/2016    Syncing - Austin
+2/4/2016    Syncing - John
+2/4/2016    Updating - Cameron
+2/12/2016   Created controller templates - Cameron
+2/12/2016   Created view files - Austin
+2/12/2016   Added database SQL file - John
+2/12/2016   Added base template and controller - Cameron
+2/12/2016   Added new file paths for assets/bootstrap - Cameron
+2/12/2016   Added code for dashboard view - Austin
+2/12/2016   Added code for stock view - Austin
+2/14/2016   Linked dashboard view to Base_Controller - Austin
+2/14/2016   Initial Styling for Stock panel of dashboard - Austin
+2/14/2016   Grab Data for the stock panel - Cameron & John
+2/14/2016   Implemented stock view with dropdown links - Cameron & John
+2/14/2016   Fixed styling for dashboard display - Austin
+2/14/2016   Implemented player view - Austin
+2/14/2016   Added stock history for stock view - Cameron & John
+2/14/2016   Added navbar and updated styling - Cameron
+2/14/2015   Added Player holdings tables
+2/14/2016   Added username session variable defaulted to Donald
+2/14/2016   Added Player holdings table - Austin 
+2/14/2016   Added Player activity table and total player equity field - Austin
+2/14/2016   Added Equity field to player panel of dashboard - Austin

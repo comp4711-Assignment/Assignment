@@ -1,6 +1,9 @@
 <?php
-//defined('BASEPATH') OR exit('No direct script access allowed');
 
+/****
+ * The main page where the player data is shown and current stock values
+ * are shown. They are updated based on values within the database.
+ */
 class Welcome extends Application {
 
 	/**
@@ -19,6 +22,9 @@ class Welcome extends Application {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
     
+        /**
+         * Base contructor for welcome controller
+         */
         function __construct() {
 		parent::__construct();
         }

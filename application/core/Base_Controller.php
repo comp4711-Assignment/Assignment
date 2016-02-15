@@ -39,7 +39,9 @@ class Application extends CI_Controller {
            
         }
         
-       
+       /***
+        * Initializes the menu for the session
+        */
         function init_menu() {
             if($this->session->userdata('username') == ''){
                 $username = '';

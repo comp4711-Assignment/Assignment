@@ -20,7 +20,7 @@
                 {content}
             </div>
             <div id="footer" class="span12">
-                Copyright &copy; 2014-2015,  John, Cameron, Austin.
+                Copyright &copy; 2015-2016,  John, Cameron, Austin.
             </div>
         </div>
         <script src="/assets/js/jquery-1.11.1.min.js"></script>

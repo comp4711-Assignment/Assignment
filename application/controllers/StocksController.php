@@ -20,8 +20,9 @@ class StocksController extends Application {
 
             $this->data['stockvalue'] = $row->Value;
             
-            $this->show_activity($name);
+            $this->show_transactions($name);
 
+            $this->show_movements($name);
         } else {
             
             $array = $this->transactions->find_recent();
@@ -44,7 +45,7 @@ class StocksController extends Application {
         $this->data['stocklist'] = $dropdown;
     }
     
-    function show_activity($name) {
+    function show_transactions($name) {
         
         $list = $this->transactions->some('stock', $name);
         
@@ -55,6 +56,20 @@ class StocksController extends Application {
         }
         
         $this->data['stockdata'] = $history;
+        
+    }
+    
+    function show_movements($name){
+        
+        $list = $this->movements->some('code', $name);
+        
+        $movement = '';
+        
+        foreach($list as $item) {
+            $movement .= '<tr><td>'.$item->Action.'</td><td>'.$item->Amount.'</td></tr>';
+        }
+        
+        $this->data['movements'] = $movement;
         
     }
 }

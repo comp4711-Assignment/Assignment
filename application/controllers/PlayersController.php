@@ -6,14 +6,15 @@
  ******/
 class PlayersController extends Application {
     
-    var $equity = 0;
     /****
-    * Constructs the playercontroller.
-    */
-    function __construct()
-    {
-            parent::__construct();
-    }
+     * Constructs the playercontroller.
+     */
+        var $equity = 0;
+        
+        function __construct()
+	{
+		parent::__construct();
+        }
 
     /***
      * Displays the data for the appropriate player when selected upon.
@@ -33,12 +34,11 @@ class PlayersController extends Application {
             $this->data['playercash'] = $row->Cash; // displays current cash for player
 
             $this->show_activity($name); // calls show activity function for player
-            $this->data['playercash'] = $row->Cash;
-
+                
             $this->show_transactions($name);
-
+                
             $this->show_holdings($name);
-
+                
             $this->data['playerequity'] = $this->equity + $row->Cash;
         }
 
@@ -89,8 +89,14 @@ class PlayersController extends Application {
                         }
                     }
                 }
+                    
+                $total = $quant * $value; // gets total
+                $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>'; // prints holding
             }
         }
+        
+        $this->data['playerdata'] = $holdings; // sets all data for holding
+        
     }
         
     function show_transactions($name) {
@@ -107,46 +113,40 @@ class PlayersController extends Application {
 
     }
         
-        function show_holdings($name) {
+    function show_holdings($name) {
 
-            $list = $this->transactions->some('player', $name);
+        $list = $this->transactions->some('player', $name);
 
-            $holdings = '';
-            
-            $array = array();
+        $holdings = '';
 
-            foreach($list as $item) {
-                if(!in_array($item->Stock, $array, true)) {
-                    array_push($array, $item->Stock);
-                    $list3 = $this->stocks->some('code', $item->Stock);
-                    $value = 0;
-                    $quant = 0;
-                    foreach($list3 as $item3) {
-                        $value = $item3->Value;
+        $array = array();
 
-                        $list2 = $this->transactions->some('stock', $item->Stock);
+        foreach($list as $item) {
+            if(!in_array($item->Stock, $array, true)) {
+                array_push($array, $item->Stock);
+                $list3 = $this->stocks->some('code', $item->Stock);
+                $value = 0;
+                $quant = 0;
+                foreach($list3 as $item3) {
+                    $value = $item3->Value;
 
-                        foreach($list2 as $item2) {
-                            if($item2->Player == $name) {
-                                if($item2->Trans == 'buy') {
-                                    $quant += $item->Quantity;
-                                } else {
-                                    $quant -= $item->Quantity;
-                                }
+                    $list2 = $this->transactions->some('stock', $item->Stock);
+
+                    foreach($list2 as $item2) {
+                        if($item2->Player == $name) {
+                            if($item2->Trans == 'buy') {
+                                $quant += $item->Quantity;
+                            } else {
+                                $quant -= $item->Quantity;
                             }
                         }
                     }
-
-                    $total = $quant * $value;
-                    $this->equity += $total;
-                    $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>';
                 }
 
-                $total = $quant * $value; // gets total
-                $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>'; // prints holding
+                $total = $quant * $value;
+                $this->equity += $total;
+                $holdings .= '<tr><td>'.$item->Stock.'</td><td>'.$quant.'</td><td>'.$value.'</td><td>'.$total.'</td></tr>';
             }
-        
-        $this->data['playerdata'] = $holdings; // sets all data for holding
-        
+        }
     }
 }

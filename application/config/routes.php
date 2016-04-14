@@ -56,3 +56,4 @@ $route['player/(:any)'] = 'playerscontroller/display/$1';
 $route['player'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['register'] = 'registercontroller/display';

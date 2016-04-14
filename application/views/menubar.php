@@ -17,7 +17,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <li>{userlink}{username}{closelink}</li>
-    <li>{loginlink}{action}</button></li>
+    <li>{loginlink}{action}{reglink}{regtext}</button></li>
     </ul>
   </div>
 </nav>

@@ -18,4 +18,8 @@ class BSX extends Base_Model {
         parent::__construct('movements', 'datetime');
     }
     
+    function getStatus()
+    {
+        return file_get_contents(STATUSDATA_URL);
+    }
 }

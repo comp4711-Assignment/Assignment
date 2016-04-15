@@ -15,6 +15,4 @@ class AgentController extends Application {
 	{
 		parent::__construct();
         }
-
-
 }

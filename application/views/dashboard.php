@@ -2,7 +2,8 @@
  The main page that holds the two panels on the tables
  for even spacing.
 -->
-<div style="height: 20%; width:100%;">
+<meta http-equiv="refresh" content="20">
+<div style="height: 15%; width:100%;">
     {gamepanel}
 </div>
 <div class="table-responsive">

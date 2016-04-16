@@ -40,6 +40,16 @@ class RegisterController extends Application {
                     redirect('register');
                 }
             }
-            redirect('welcome');
+            
+            $this->db->set('Player', $name);
+            $this->db->set('Cash', 1000);
+            $this->db->set('Type', $userType);
+            $this->db->set('Password', $password);
+            $this->db->insert('players');
+            
+            $this->session->set_flashdata('name', $name);
+            $this->session->set_flashdata('pass', $password);
+            
+            redirect('welcome/login');
         }
 }

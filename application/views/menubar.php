@@ -17,7 +17,8 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <li>{userlink}{username}{closelink}</li>
-    <li>{loginlink}{action}{reglink}{regtext}</button></li>
+    <li>{loginlink}{action}{reglink}{regtext}</li>
+    <li>{settings}{settingstext}</button></li>
     </ul>
   </div>
 </nav>

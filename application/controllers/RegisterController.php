@@ -6,8 +6,6 @@
  ******/
 class RegisterController extends Application {
     
-    //protected $xml = null;
-    
     /****
      * Constructs the registercontroller.
      */

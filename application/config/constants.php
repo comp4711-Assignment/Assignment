@@ -89,10 +89,14 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 
+define('DATAPATH', './data/');
+define('XMLSUFFIX','.xml');
+
 /*
  * For Servers 
  */
 
+define('REGISTERAGENT_URL', 'http://bsx.jlparry.com/register');
 define('STATUSDATA_URL', 'http://bsx.jlparry.com/status');
 define('STOCKDATA_URL', 'http://bsx.jlparry.com/data/stocks');
 define('MOVEMENTDATA_URL', 'http://bsx.jlparry.com/data/movement');

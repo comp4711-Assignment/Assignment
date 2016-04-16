@@ -34,4 +34,6 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Added Player activity table and total player equity field - Austin
 2/14/2016   Added Equity field to player panel of dashboard - Austin
 4/14/2016   Added Beginnings of user Registration - Austin
-4/16/2016   Finished resgistration and login - Austin
+4/16/2016   Finished registration and login - Austin
+4/16/2016   Started Agent registration - Cameron
+4/16/2016   Game Panel finished - John

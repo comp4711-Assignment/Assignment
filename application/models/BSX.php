@@ -14,8 +14,9 @@ class BSX extends Base_Model {
     /***
      * Base constructor
      */
+ 
     function __construct() {
-        parent::__construct('movements', 'datetime');
+        parent::__construct('bsx', 'code');
     }
     
     function getStatus()
@@ -37,4 +38,10 @@ class BSX extends Base_Model {
     {
         return file_get_contents(MOVEMENTSDATA_URL);
     }
+    
+    function registerServer() 
+    {
+        return file_get_contents(REGISTERAGENT_URL);
+    }
+
 }

@@ -45,13 +45,41 @@ class Welcome extends Application {
         function get_value() {
             if ($this->input->post('username') != '') {
                 $username = $this->input->post('username');
-                $newdata = array(
-                'username' => $username
-                );
-                $this->session->set_userdata($newdata);
-            redirect('welcome');   
+                $password = $this->input->post('pass');
+                
+                $users = $this->players->all();
+                foreach($users as $user) {
+                    if(($user->Player == $username) && ($user->Password == $password)) {
+                        $newdata = array(
+                            'username' => $user->Player,
+                            'type' => $user->Type
+                        );
+                        $this->session->set_userdata($newdata);
+                        redirect('welcome');   
+                    }
+                }
             } 
             redirect('stocks');
+        }
+        
+        function login() {
+            
+            $username = $this->session->flashdata('name');
+            $password = $this->session->flashdata('pass');
+            
+            $users = $this->players->all();
+            
+            foreach($users as $user) {
+                if(($user->Player == $username) && ($user->Password == $password)) {
+                    $sess = array(
+                        'username' => $user->Player,
+                        'type' => $user->Type
+                    );
+                    $this->session->set_userdata($sess);
+                    redirect('welcome');
+                }
+            }
+            redirect('welcome');
         }
         
         function logout() {

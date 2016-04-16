@@ -57,6 +57,7 @@ class RegisterController extends Application {
         {
             $config['upload_path'] = './data/uploads/';
             $config['allowed_types'] = 'gif|jpg|png|bmp';
+            $config['file_name'] = $this->session->userdata('username');
             $config['max_size']	= '256';
             $config['max_width']  = '256';
             $config['max_height']  = '256';
@@ -68,8 +69,8 @@ class RegisterController extends Application {
                 //$data = array('upload_data' => $this->upload->data());
                 redirect('welcome');
             }
-            echo $this->upload->display_errors('<p>', '</p>');
-            //redirect('register/userProfile');
+            //echo $this->upload->display_errors('<p>', '</p>');
+            redirect('register/userProfile');
         }
         
         function validate()

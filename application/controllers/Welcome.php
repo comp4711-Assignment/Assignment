@@ -87,6 +87,7 @@ class Welcome extends Application {
         
         function logout() {
             $this->session->unset_userdata('username');
+            $this->session->unset_userdata('type');
             
             redirect('welcome');
         }

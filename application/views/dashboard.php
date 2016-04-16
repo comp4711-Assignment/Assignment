@@ -2,6 +2,9 @@
  The main page that holds the two panels on the tables
  for even spacing.
 -->
+<div style="height: 20%; width:100%;">
+    {gamepanel}
+</div>
 <div class="table-responsive">
     <table class="table table-bordered">
         <td id="StckPnl" style="width: 50%"> <!--Panel for stock info-->

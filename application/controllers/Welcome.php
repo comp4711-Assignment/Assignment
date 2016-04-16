@@ -6,6 +6,7 @@
  */
 class Welcome extends Application {
 
+        protected $xml = null;
 	/**
 	 * Index Page for this controller.
 	 *
@@ -33,9 +34,11 @@ class Welcome extends Application {
          * Base function that is called when welcome page is generated
          */
 	public function index() {
+            
             $this->data['title'] = 'Stock Ticker';
             $this->data['pagebody'] = 'dashboard';
             
+            $this->gamePanel();
             $this->stockPanel();
             $this->playerPanel();
             
@@ -74,6 +77,14 @@ class Welcome extends Application {
             }
             
             $this->data['playerpanel'] = $playerData;
+            
+        }
+        
+        function gamePanel() {
+            
+            $status = $this->bsx->getStatus();
+            $this->xml = simplexml_load_string($status);
+            $this->data['gamepanel'] = $this->xml;
             
         }
         

@@ -49,16 +49,20 @@ class Application extends CI_Controller {
                 $userlink ='';
                 $closelink = '';
                 $loginlink = ' <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">';
-                $reglink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="register">';
+                $reglink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../register">';
                 $regtext = 'Register';
+                $settings = '';
+                $settext = '';
             } else {
                 $username = $this->session->userdata('username');
                 $action = 'Logout';
                 $userlink = '<a href="player/'.$username.'">';
                 $closelink = '</a>';
-                $loginlink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="welcome/logout">';
+                $loginlink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../welcome/logout">';
                 $reglink = '';
                 $regtext = '';
+                $settings = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../register/userProfile">';
+                $settext = 'Settings';
             }
 
          
@@ -73,6 +77,8 @@ class Application extends CI_Controller {
             $this->menudata['closelink'] = $closelink;
             $this->menudata['reglink'] = $reglink;
             $this->menudata['regtext'] = $regtext;
+            $this->menudata['settings'] = $settings;
+            $this->menudata['settingstext'] = $settext;
             
         }
 

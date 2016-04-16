@@ -57,3 +57,6 @@ $route['player'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['register'] = 'registercontroller/display';
+$route['register/userProfile'] = 'registercontroller/userProfile';
+$route['register/update'] = 'registercontroller/update';
+$route['register/upload'] = 'registercontroller/upload';

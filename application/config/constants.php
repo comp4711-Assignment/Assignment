@@ -95,7 +95,8 @@ define('XMLSUFFIX','.xml');
 /*
  * For Servers 
  */
-
+define('SELLSTOCK_URL', 'http://bsx.jlparry.com/sell');
+define('BUYSTOCK_URL', 'http://bsx.jlparry.com/buy');
 define('REGISTERAGENT_URL', 'http://bsx.jlparry.com/register');
 define('STATUSDATA_URL', 'http://bsx.jlparry.com/status');
 define('STOCKDATA_URL', 'http://bsx.jlparry.com/data/stocks');

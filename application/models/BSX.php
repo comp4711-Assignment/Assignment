@@ -24,10 +24,24 @@ class BSX extends Base_Model {
         return file_get_contents(STATUSDATA_URL);
     }
     
+    function getTransactions()
+    {
+        return file_get_contents(STOCKDATA_URL);
+    }
+    
+    function getStocks()
+    {
+        return file_get_contents(TRANSACTIONDATA_URL);
+    }
+    
+    function getMovements()
+    {
+        return file_get_contents(MOVEMENTSDATA_URL);
+    }
+    
     function registerServer() 
     {
         return file_get_contents(REGISTERAGENT_URL);
     }
 
 }
-    

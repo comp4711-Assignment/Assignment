@@ -6,6 +6,7 @@
  */
 class Welcome extends Application {
 
+        protected $xml = null;
 	/**
 	 * Index Page for this controller.
 	 *
@@ -33,9 +34,11 @@ class Welcome extends Application {
          * Base function that is called when welcome page is generated
          */
 	public function index() {
+            
             $this->data['title'] = 'Stock Ticker';
             $this->data['pagebody'] = 'dashboard';
             
+            //$this->gamePanel(); This will connect to the server ** WHEN THE SERVER WORKS ***
             $this->stockPanel();
             $this->playerPanel();
             
@@ -103,6 +106,21 @@ class Welcome extends Application {
             
             $this->data['playerpanel'] = $playerData;
             
+        }
+        
+        function gamePanel() {
+            $status = $this->bsx->getStatus();
+            $this->xml = simplexml_load_string($status);
+            $string = '<h2>Round ' . $this->xml->round . '</h2>';
+            $string .= '<div style="height:30px"><h4>Countdown: ' . $this->xml->countdown . '</h4>';
+            $string .= '<h4 style="position:relative; top:-30px; width:inherit; text-align:right">State: ' . $this->xml->current . '</h4></div>';
+            if ($this->xml->state == 2) {
+                $string .= '<button type="button" class="btn btn-default" style="position:relative; top:-70px; left:810px; width:100px;">Register</button>';
+            } else {
+                $string .= '<div style="position:relative; top:-70px; width:inherit; text-align:right">Registering Closed</div>';
+            }
+
+            $this->data['gamepanel'] = $string;
         }
         
         /***

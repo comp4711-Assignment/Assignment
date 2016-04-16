@@ -17,19 +17,14 @@ class AgentController extends Application {
                 parent::__construct();
         }
 
-        function registerToServer() 
-        {
-            //$this
-        }
-
-
-
-       function registerAgent($teamId, $teamName, $password) {
+       function registerAgent() {
+        $row = $this->bsx->get('B09');
         $params = array(
-            'team' => $teamId,
-            'name' => $teamName,
-            'password' => $password,
+            'team' => $row->code,
+            'name' => $row->name,
+            'password' => $row->password,
         );
+        
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, REGISTERAGENT_URL);     
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
@@ -39,7 +34,15 @@ class AgentController extends Application {
         $xml_resp = new SimpleXMLElement($response);
         curl_close($curl);
         //$this->session->set_userdata('token', $xml_resp->token->__toString());
+        $token = $xml_resp->token->__toString();
         //$this->session->set_userdata('lastRegistered', time());
+        $newRow = array(
+            'code' => $row->code,
+            'name' => $row->name,
+            'password' => $row->password,
+            'token' => $token,
+        );
+        $this->bsx->update($newRow);
     }
 }
 

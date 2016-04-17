@@ -65,10 +65,18 @@ class Application extends CI_Controller {
                 $settext = 'Settings';
             }
 
-         
+            $adminlink = '';
+            $admintext = '';
+            if($this->session->userdata('type') == 'ADMN')
+            {
+                $adminlink = '/admin';
+                $admintext = 'Administration';
+            }
+            
             $this->menudata['menudata'] = array(
                 array('name' => 'Stocks', 'link' => '/stocks'),
                 array('name' => 'Players', 'link' => '/player'),
+                array('name' => $admintext, 'link' => $adminlink)
             );
             $this->menudata['username'] = $username;
             $this->menudata['loginlink'] = $loginlink;

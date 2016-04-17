@@ -60,3 +60,6 @@ $route['register'] = 'registercontroller/display';
 $route['register/userProfile'] = 'registercontroller/userProfile';
 $route['register/update'] = 'registercontroller/update';
 $route['register/upload'] = 'registercontroller/upload';
+$route['admin'] = 'welcome/adminPlayers';
+$route['admin/edit'] = 'Welcome/adminEdit';
+$route['admin/(:any)'] = 'Welcome/adminPlayer/$1';

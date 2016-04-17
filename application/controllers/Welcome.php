@@ -102,7 +102,7 @@ class Welcome extends Application {
 
             foreach($players as $player) {
                 $equity = $this->calc_equity($player->Player);
-                $playerData .= '<tr><td><a href="player/'.$player->Player.'">'.$player->Player.'</td><td>'.$player->Cash.'</td><td>'.$equity.'</td></tr>';
+                $playerData .= '<tr><td><a href="player/'.$player->Player.'"><img src="'.$player->Avatar.'" width="42" height="42">'.$player->Player.'</td><td>'.$player->Cash.'</td><td>'.$equity.'</td></tr>';
             }
             
             $this->data['playerpanel'] = $playerData;

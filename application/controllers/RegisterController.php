@@ -58,6 +58,7 @@ class RegisterController extends Application {
         function upload()
         {
             $name = $this->session->userdata('username');
+            //$filepath = './data/uploads/' . $name;
             $config['upload_path'] = './data/uploads/';
             $config['allowed_types'] = 'gif|jpg|png|bmp';
             $config['overwrite'] = TRUE;
@@ -71,20 +72,21 @@ class RegisterController extends Application {
             if($this->upload->do_upload("avatar"))
             {
                 $data = array('upload_data' => $this->upload->data());
+                $filepath = '../data/uploads/' . $data['upload_data']['file_name'];
                 $rec = array(
                     'player' => $this->players->get($name)->Player,
                     'Cash' => $this->players->get($name)->Cash,
                     'Type' => $this->players->get($name)->Type,
                     'Password' => $this->players->get($name)->Password,
-                    'Avatar' => $data['upload_data']['full_path']
+                    'Avatar' => $filepath
                 );
                 $this->players->update($rec);
                 redirect('welcome');
 
-                //echo $data['upload_data']['full_path'];
+                //echo $filepath;
             }
             //echo $this->upload->display_errors('<p>', '</p>');
-            //redirect('register/userProfile');
+            redirect('register/userProfile');
         }
         
         function validate()

@@ -21,6 +21,7 @@ class StocksController extends Application {
     function display($name = null) {
         $this->data['pagebody'] = 'stock'; // sets page to stock view
         $this->bsx->getStocks();
+        $this->bsx->getTransactions();
         $this->bsx->getMovements();
         $this->display_list(); // displays dropdown list
         $stock = array();
@@ -50,7 +51,7 @@ class StocksController extends Application {
             $this->data['stockname'] = $stock['name']; // sets stock name
             $this->data['stockvalue'] = $stock['value']; // sets stock value
             
-            //$this->show_transactions($name);
+            $this->show_transactions($name);
 
             $this->show_movements($name);
             
@@ -87,13 +88,16 @@ class StocksController extends Application {
      * Shows transactions based on the transaction history in the database
      */
     function show_transactions($name) {
-        
-        $list = $this->transactions->some('stock', $name);
+        $filename = DATAPATH."transac.csv";
+        $list = $this->bsx->ImportCSv2Array($filename);
+        //$list = $this->transactions->some('stock', $name);
         
         $history = '';
         
         foreach($list as $item) {
-            $history .= '<tr><td>'.$item->Player.'</td><td>'.$item->Stock.'</td><td>'.$item->Trans.'</td><td>'.$item->Quantity.'</td></tr>';
+            if ($item['code'] == $name) {
+                $history .= '<tr><td>'.$item['player'].'</td><td>'.$item['stock'].'</td><td>'.$item['trans'].'</td><td>'.$item['quantity'].'</td></tr>';
+            }
         }
         
         $this->data['stockdata'] = $history;

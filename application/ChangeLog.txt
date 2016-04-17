@@ -38,3 +38,5 @@ Cameron Stenmark                Acknowledged
 4/16/2016   Started Agent registration - Cameron
 4/16/2016   Game Panel finished - John
 4/16/2016   File upload and basic user control for accounts - Austin
+4/16/2016   Uploaded files path is now submitted to the server so that it can be
+            used. - Austin

@@ -41,12 +41,14 @@ class RegisterController extends Application {
             }
             
             $cash = $this->players->get($name)->Cash;
+            $avatar = $this->players->get($name)->Avatar;
             
             $rec = array(
                 'player' => $name,
                 'Cash' => $cash,
                 'Type' => $type,
-                'Password' => $pass
+                'Password' => $pass,
+                'Avatar' => $avatar
             );
             
             $this->players->update($rec);
@@ -55,9 +57,11 @@ class RegisterController extends Application {
         
         function upload()
         {
+            $name = $this->session->userdata('username');
             $config['upload_path'] = './data/uploads/';
             $config['allowed_types'] = 'gif|jpg|png|bmp';
-            $config['file_name'] = $this->session->userdata('username');
+            $config['overwrite'] = TRUE;
+            $config['file_name'] = $name;
             $config['max_size']	= '256';
             $config['max_width']  = '256';
             $config['max_height']  = '256';
@@ -66,11 +70,21 @@ class RegisterController extends Application {
             
             if($this->upload->do_upload("avatar"))
             {
-                //$data = array('upload_data' => $this->upload->data());
+                $data = array('upload_data' => $this->upload->data());
+                $rec = array(
+                    'player' => $this->players->get($name)->Player,
+                    'Cash' => $this->players->get($name)->Cash,
+                    'Type' => $this->players->get($name)->Type,
+                    'Password' => $this->players->get($name)->Password,
+                    'Avatar' => $data['upload_data']['full_path']
+                );
+                $this->players->update($rec);
                 redirect('welcome');
+
+                //echo $data['upload_data']['full_path'];
             }
             //echo $this->upload->display_errors('<p>', '</p>');
-            redirect('register/userProfile');
+            //redirect('register/userProfile');
         }
         
         function validate()

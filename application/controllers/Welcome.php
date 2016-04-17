@@ -177,4 +177,82 @@ class Welcome extends Application {
             }
             return $equity; // returns the total equity
         }
+        
+        function adminPlayers()
+        {
+            if($this->session->userdata('type') != 'ADMN')
+            {
+                redirect('welcome');
+            }
+            
+            $players = $this->players->all();
+            $users = '';
+            
+            foreach($players as $player)
+            {
+                $users .= '<tr><td><a href="admin/'.$player->Player.'">'.$player->Player.'</td></tr>';
+            }
+            
+            $this->data['pagebody'] = 'adminView';
+            $this->data['users'] = $users;
+            $this->render();
+        }
+        
+        function adminPlayer($user)
+        {
+            if($this->session->userdata('type') != 'ADMN')
+            {
+                redirect('welcome');
+            }
+            
+            $this->data['pagebody'] = 'adminEdit';
+            $this->data['user'] = $user;
+            $this->render();
+        }
+        
+        function adminEdit()
+        {
+            if($this->session->userdata('type') != 'ADMN')
+            {
+                redirect('welcome');
+            }
+            
+            $user = $this->input->post('user');
+            $pass = $this->players->get($user)->Password;
+            $cash = $this->players->get($user)->Cash;
+            $avatar = $this->players->get($user)->Avatar;
+            $type = $this->players->get($user)->Type;
+            
+            $test = $this->input->post('pass');
+            if($test == 'reset')
+            {
+                $pass = $user . '123';  
+            }
+            
+            $test2 = $this->input->post('avatar');
+            if($test2 == 'reset')
+            {
+                $avatar = '';
+            }
+            
+            $test3 = $this->input->post('type');
+            if($test3 == 'admin')
+            {
+                $type = 'ADMN';
+            } else if($test3 == 'user')
+            {
+                $type = 'USER';
+            }
+            
+            $rec = array(
+                'player' => $user,
+                'Cash' => $cash,
+                'Type' => $type,
+                'Password' => $pass,
+                'Avatar' => $avatar
+            );
+            
+            $this->players->update($rec);
+            redirect('admin');
+        }
 }

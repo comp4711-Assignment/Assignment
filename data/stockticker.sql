@@ -85,11 +85,11 @@ CREATE TABLE IF NOT EXISTS `players` (
 -- Dumping data for table `players`
 --
 
-INSERT INTO `players` (`Player`, `Cash`) VALUES
-('Mickey', 1000),
-('Donald', 3000),
-('George', 2000),
-('Henry', 2500);
+INSERT INTO `players` (`Player`, `Cash`, `Type`, `Password`, `Avatar`) VALUES
+('Mickey', 1000, 'ADMN', 'Mickey123', '../data/uploads/baboon.bmp'),
+('Donald', 3000, 'USER', 'Donald123', 'NULL'),
+('George', 2000, 'USER', 'George123', 'NULL'),
+('Henry', 2500, 'USER', 'Henry123', 'NULL';
 
 -- --------------------------------------------------------
 
@@ -150,6 +150,19 @@ INSERT INTO `transactions` (`DateTime`, `Player`, `Stock`, `Trans`, `Quantity`) 
 ('2016.02.01-09:01:50', 'Donald', 'TECH', 'sell', 100),
 ('2016.02.01-09:01:55', 'George', 'OIL', 'buy', 100),
 ('2016.02.01-09:01:60', 'George', 'IND', 'buy', 100);
+
+-- BSX servers stuff
+DROP TABLE IF EXISTS `bsx`;
+CREATE TABLE IF NOT EXISTS `bsx` (
+    `Code` varchar(3) DEFAULT NULL,
+    `Name` varchar(32) DEFAULT NULL,
+    `Password` varchar(32) DEFAULT NULL,
+    `Token` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `bsx` (`Code`, `Name`, `Password`, `Token`) VALUES
+('B09', 'Get Shrekt', 'tuesday', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

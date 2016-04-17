@@ -42,3 +42,6 @@ Cameron Stenmark                Acknowledged
             used. - Austin
 4/17/2016   Stock page almost done, still needs transactions. - John
 4/17/2016   Stock Panel for dashboard is done. - John
+4/17/2016   Player avatar's now display on dashboard - Austin
+4/17/2016   Added administration tools - Austin
+4/17/2016   Added new bsx table and updated existing columns in data/stockticker.sql

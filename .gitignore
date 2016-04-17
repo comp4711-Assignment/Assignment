@@ -1,6 +1,6 @@
 /nbproject/
 /application/config/database.php
-data/moves
-data/status
-data/stock
-data/transac
+data/moves.csv
+data/status.xml
+data/stock.csv
+data/transac.csv

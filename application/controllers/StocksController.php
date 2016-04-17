@@ -20,28 +20,50 @@ class StocksController extends Application {
      */
     function display($name = null) {
         $this->data['pagebody'] = 'stock'; // sets page to stock view
-        
+        $this->bsx->getStocks();
+        $this->bsx->getMovements();
         $this->display_list(); // displays dropdown list
+        $stock = array();
+        
+        $filename = DATAPATH."stock.csv";
+        $list = $this->bsx->ImportCSV2Array($filename);
+        $lastElement = end($list);
+        foreach ($list as $item) {
+            if ($item['code'] == $name) {
+                $name = $item['code'];
+                break;
+            } else if ($item == $lastElement) {
+                $name = null;
+            }
+
+        }
+
         
         if($name != null) {
-        
-            $row = $this->stocks->get($name); // gets stock info
-
-            $this->data['stockname'] = $row->Name; // sets stock name
-
-            $this->data['stockvalue'] = $row->Value; // sets stock value
             
-            $this->show_transactions($name);
+            foreach ($list as $item) {
+                if ($item['code'] == $name) {
+                    $stock = $item;
+                    break;
+                }
+            }
+            $this->data['stockname'] = $stock['name']; // sets stock name
+            $this->data['stockvalue'] = $stock['value']; // sets stock value
+            
+            //$this->show_transactions($name);
 
             $this->show_movements($name);
             
+            
         } else {
             
-            $array = $this->transactions->find_recent();
+            $filename = DATAPATH."moves.csv";
+            $list = $this->bsx->ImportCSV2Array($filename);
+            $array = end($list);
+            print_r($array);
             
-            redirect('stocks/'.$array->Stock); // redirects to last transacted item
+            redirect('stocks/'.$array['code']); // redirects to last transacted item
         }
-        
         $this->render();
     }
     
@@ -49,12 +71,13 @@ class StocksController extends Application {
      * Displays the list based on all the stocks available
      */
     function display_list(){
-        $list = $this->stocks->all();
-
+        
+        $filename = DATAPATH."stock.csv";
+        $list = $this->bsx->ImportCSV2Array($filename);
         $dropdown = '';
 
         foreach($list as $item) {
-            $dropdown .= '<li><a href="'.$item->Code.'">'.$item->Name.'</a></li>';
+            $dropdown .= '<li><a href="'.$item['code'].'">'.$item['name'].'</a></li>';
         }
 
         $this->data['stocklist'] = $dropdown;
@@ -81,15 +104,16 @@ class StocksController extends Application {
      * Shows the movements based on database data
      */
     function show_movements($name){
-        
-        $list = $this->movements->some('code', $name);
+        $filename = DATAPATH."moves.csv";
+        $list = $this->bsx->ImportCSV2Array($filename);
         
         $movement = '';
         
         foreach($list as $item) {
-            $movement .= '<tr><td>'.$item->Action.'</td><td>'.$item->Amount.'</td></tr>';
+            if ($item['code'] == $name) {
+                $movement .= '<tr><td>'.$item['seq']. '</td><td>'.$item['action'].'</td><td>'.$item['amount'].'</td></tr>';
+            }
         }
-        
         $this->data['movements'] = $movement;
         
     }

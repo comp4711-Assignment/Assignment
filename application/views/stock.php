@@ -34,7 +34,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="span2">Action</th><th class="span2">Amount</th>
+                        <th class="span2">Sequence</th><th class="span2">Action</th><th class="span2">Amount</th>
                     </tr>
                 </thead>
                 <tbody>

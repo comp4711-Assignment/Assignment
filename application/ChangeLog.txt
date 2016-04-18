@@ -33,3 +33,15 @@ Cameron Stenmark                Acknowledged
 2/14/2016   Added Player holdings table - Austin 
 2/14/2016   Added Player activity table and total player equity field - Austin
 2/14/2016   Added Equity field to player panel of dashboard - Austin
+4/14/2016   Added Beginnings of user Registration - Austin
+4/16/2016   Finished registration and login - Austin
+4/16/2016   Started Agent registration - Cameron
+4/16/2016   Game Panel finished - John
+4/16/2016   File upload and basic user control for accounts - Austin
+4/16/2016   Uploaded files path is now submitted to the server so that it can be
+            used. - Austin
+4/17/2016   Stock page almost done, still needs transactions. - John
+4/17/2016   Stock Panel for dashboard is done. - John
+4/17/2016   Player avatar's now display on dashboard - Austin
+4/17/2016   Added administration tools - Austin
+4/17/2016   Added new bsx table and updated existing columns in data/stockticker.sql

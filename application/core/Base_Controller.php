@@ -49,24 +49,44 @@ class Application extends CI_Controller {
                 $userlink ='';
                 $closelink = '';
                 $loginlink = ' <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">';
+                $reglink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../register">';
+                $regtext = 'Register';
+                $settings = '';
+                $settext = '';
             } else {
                 $username = $this->session->userdata('username');
                 $action = 'Logout';
                 $userlink = '<a href="player/'.$username.'">';
                 $closelink = '</a>';
-                $loginlink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="welcome/logout">';
+                $loginlink = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../welcome/logout">';
+                $reglink = '';
+                $regtext = '';
+                $settings = ' <button type="button" class="btn btn-info btn-lg" onclick=location.href="../register/userProfile">';
+                $settext = 'Settings';
             }
 
-         
+            $adminlink = '';
+            $admintext = '';
+            if($this->session->userdata('type') == 'ADMN')
+            {
+                $adminlink = '/admin';
+                $admintext = 'Administration';
+            }
+            
             $this->menudata['menudata'] = array(
                 array('name' => 'Stocks', 'link' => '/stocks'),
                 array('name' => 'Players', 'link' => '/player'),
+                array('name' => $admintext, 'link' => $adminlink)
             );
             $this->menudata['username'] = $username;
             $this->menudata['loginlink'] = $loginlink;
             $this->menudata['action'] = $action;
             $this->menudata['userlink'] = $userlink;
-            $this->menudata['closelink'] = $closelink;  
+            $this->menudata['closelink'] = $closelink;
+            $this->menudata['reglink'] = $reglink;
+            $this->menudata['regtext'] = $regtext;
+            $this->menudata['settings'] = $settings;
+            $this->menudata['settingstext'] = $settext;
             
         }
 

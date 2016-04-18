@@ -2,7 +2,7 @@
  The main page that holds the two panels on the tables
  for even spacing.
 -->
-<!--<meta http-equiv="refresh" content="5">-->
+<meta http-equiv="refresh" content="20">
 <div style="height: 100px; width:100%; background-color:#DDDDDD; margin-bottom: 20px; padding: 5px 20px 0px 20px;">
     {gamepanel}
 </div>
@@ -12,7 +12,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th class="span2">Name</th><th class="span2">Value</th>
+                        <th class="span2">Name</th><th class="span2">Category</th><th class="span2">Value</th>
                     </tr>
                 </thead>
                 <tbody>

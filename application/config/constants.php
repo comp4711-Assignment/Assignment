@@ -102,3 +102,8 @@ define('STATUSDATA_URL', 'http://bsx.jlparry.com/status');
 define('STOCKDATA_URL', 'http://bsx.jlparry.com/data/stocks');
 define('MOVEMENTDATA_URL', 'http://bsx.jlparry.com/data/movement');
 define('TRANSACTIONSDATA_URL', 'http://bsx.jlparry.com/data/transactions');
+//define('REGISTERDATA_URL', 'http://jlpServer.local:4711/register');
+//define('STATUSDATA_URL', 'http://jlpServer.local:4711/status');
+//define('STOCKDATA_URL', 'http://jlpServer.local:4711/data/stocks');
+//define('MOVEMENTDATA_URL', 'http://jlpServer.local:4711/data/movement');
+//define('TRANSACTIONSDATA_URL', 'http://jlpServer.local:4711/data/transactions');

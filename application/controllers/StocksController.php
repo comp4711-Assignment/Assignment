@@ -95,7 +95,7 @@ class StocksController extends Application {
         $history = '';
         
         foreach($list as $item) {
-            if ($item['code'] == $name) {
+            if ($item['stock'] == $name) {
                 $history .= '<tr><td>'.$item['player'].'</td><td>'.$item['stock'].'</td><td>'.$item['trans'].'</td><td>'.$item['quantity'].'</td></tr>';
             }
         }

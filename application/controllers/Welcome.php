@@ -115,8 +115,8 @@ class Welcome extends Application {
             $string = '<h2>Round ' . $this->xmlStatus->round . '</h2>';
             $string .= '<div style="height:30px"><h4>Countdown: ' . $this->xmlStatus->countdown . '</h4>';
             $string .= '<h4 style="position:relative; top:-30px; width:inherit; text-align:right; margin-bottom: 10px;">State: ' . $this->xmlStatus->current . '</h4></div>';
-            if ($this->xmlStatus->state == 2) {
-                $string .= '<button type="button" class="btn btn-default" style="position:relative; top:-76px; left:740px; width:130px;">Register To Play</button>';
+            if ($this->xmlStatus->state == 2 || $this->xmlStatus->state == 3) {
+                $string .= '<button type="button" onclick=location.href="/welcome/send_Request" class="btn btn-default" style="position:relative; top:-76px; left:740px; width:130px;">Register To Play</button>';
             } else {
                 $string .= '<div style="position:relative; top:-76px; width:inherit; text-align:right"><h4>Registering Closed</h4></div>';
             }
@@ -134,10 +134,14 @@ class Welcome extends Application {
             $stocks = $this->bsx->ImportCSV2Array($filename);
             $stockData = '';
             foreach($stocks as $stock) {
-                    $stockData .= '<tr><td><a href="stocks/'.$stock['code'].'">'.$stock['name'].'</td><td>'.$stock['category'].'<td>'.$stock['value'].'</td></tr>';
+                $stockData .= '<tr><td><a href="stocks/'.$stock['code'].'">'.$stock['name'].'</td><td>'.$stock['category'].'<td>'.$stock['value'].'</td></tr>';
             }
            
             $this->data['stockpanel'] = $stockData;    
+        }
+        
+        function send_Request() {
+            
         }
         
         /***

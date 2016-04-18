@@ -134,7 +134,7 @@ class Welcome extends Application {
             $stocks = $this->bsx->ImportCSV2Array($filename);
             $stockData = '';
             foreach($stocks as $stock) {
-                    $stockData .= '<tr><td><a href="stocks/'.$stock['code'].'">'.$stock['name'].'</td><td>'.$stock['value'].'</td></tr>';
+                    $stockData .= '<tr><td><a href="stocks/'.$stock['code'].'">'.$stock['name'].'</td><td>'.$stock['category'].'<td>'.$stock['value'].'</td></tr>';
             }
            
             $this->data['stockpanel'] = $stockData;    

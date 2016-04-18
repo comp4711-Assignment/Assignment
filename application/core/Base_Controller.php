@@ -78,6 +78,9 @@ class Application extends CI_Controller {
                 array('name' => 'Players', 'link' => '/player'),
                 array('name' => $admintext, 'link' => $adminlink)
             );
+            if($this->session->userdata('username') != '') {
+                array_push($this->menudata['menudata'], array('name' => 'Gameplay', 'link' => '/gameplay'));
+            }
             $this->menudata['username'] = $username;
             $this->menudata['loginlink'] = $loginlink;
             $this->menudata['action'] = $action;

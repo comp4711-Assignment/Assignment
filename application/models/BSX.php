@@ -43,9 +43,11 @@ class BSX extends Base_Model {
         file_put_contents(DATAPATH.'moves.csv', $source);
     }
     
-    function registerServer() 
+    function registerServer($items) 
     {
-        return file_get_contents(REGISTERAGENT_URL);
+        $contents = file_put_contents(REGISTERDATA_URL,$items);
+        print_r($contents);
+        return $contents;
     }
     
     function ImportCSV2Array($filename)
